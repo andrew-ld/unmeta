@@ -122,12 +122,10 @@ class UnmetaClassVisitor(private val path: String, cv: ClassVisitor) :
     override fun visitAnnotation(desc: String?, visible: Boolean): AnnotationVisitor? {
         return when (desc) {
             "Lkotlin/Metadata;" -> {
-                println("Removed @Metadata annotation from $path")
                 modified = true
                 null
             }
             "Lkotlin/coroutines/jvm/internal/DebugMetadata;" -> {
-                println("Removed @DebugMetadata annotation from $path")
                 modified = true
                 null
             }
